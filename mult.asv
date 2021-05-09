@@ -1,0 +1,18 @@
+function y=mult(a,b)
+na=size(a.val,2);
+nb=size(b.val,2);
+nc=na+nb-1;
+ta=a.val(na:-1:1);
+tb=b.val(nb:-1:1);
+tc=zeros(1,nc);
+
+n=na-1;m=nb-1;
+for k=0:(m+n)
+    for i=0:k
+        tc(k+1)=tc(k)+ta(i)*tb(j);
+    end
+end
+
+y.val=tc(nc:-1:1);
+y.sign=a.sign*b.sign;
+y=formal(y);

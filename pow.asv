@@ -1,0 +1,19 @@
+function y=pow(a,k)
+%k is integer>=2
+%改进的乘方算法,其实这个算法也可以再改进，可以记住a的2^i次方的结果，下面计算时只需要查找对应的项并且乘起来就行
+kk=k;
+i=floor(log2(kk));
+kk=kk-(2^i);;
+arr_i=i;n=i;
+while kk>0
+    i=floor(log2(kk));
+    kk=kk-(2^i);
+    arr_i=[i arr_i];
+end
+
+i=1;
+t=a;
+y=fromvect(1);
+while i<=n
+    
+    t=mult(t,t);
